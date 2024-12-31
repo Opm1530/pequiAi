@@ -3,7 +3,7 @@ session_start();
 require '../configs/dbconfig.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     $stmt = $pdo->prepare('SELECT * FROM users WHERE email = :email');
