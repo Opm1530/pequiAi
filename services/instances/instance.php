@@ -1,5 +1,5 @@
 <?php
-
+require '../configs/dbconfig.php';
 session_start();
 
 // Verifica se o ID do usuário está na sessão
