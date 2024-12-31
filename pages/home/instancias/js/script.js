@@ -23,9 +23,9 @@ window.addEventListener("click", function(event) {
 
 document.getElementById("sendDataBtn").addEventListener("click", function() {
     const inputData = document.getElementById("name").value; // Pega o valor do input
-    console.log("terste")
+    console.log(inputData)
     // Envia o dado via requisição POST para o PHP
-    fetch("../../../../services/instances/instance.php", {
+    fetch("../../../../services/instances/instanceCreate.php", {
         method: "POST", // Método POST
         headers: {
             "Content-Type": "application/json" // Cabeçalho informando que estamos enviando JSON
