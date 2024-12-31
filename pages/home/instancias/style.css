@@ -20,3 +20,6 @@
     padding: 30px;
     gap: 15px;
 }
+#qrcode-image{
+    width: 100px;
+}
