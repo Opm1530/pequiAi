@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../auth/login.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,5 +17,6 @@
 </head>
 <body>
     <h1>Home</h1>
+    <a href="../../services/auth/logout.php">Deslogar</a>
 </body>
-</html>>
+</html>
