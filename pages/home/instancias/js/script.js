@@ -23,14 +23,14 @@ window.addEventListener("click", function(event) {
 
 document.getElementById("sendDataBtn").addEventListener("click", function() {
     const inputData = document.getElementById("name").value; // Pega o valor do input
-
+    console.log("terste")
     // Envia o dado via requisição POST para o PHP
     fetch("../../../../services/instances/instance.php", {
         method: "POST", // Método POST
         headers: {
             "Content-Type": "application/json" // Cabeçalho informando que estamos enviando JSON
         },
-        body: JSON.stringify({ instanceName: inputData }) // Altera para "instanceName" aqui
+        body: JSON.stringify({ instanceName: inputData })// Altera para "instanceName" aqui
         
     })
     .then(response => response.json()) // Responde com JSON
