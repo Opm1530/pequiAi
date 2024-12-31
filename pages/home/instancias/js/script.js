@@ -72,9 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json()) // Converte a resposta para JSON
         .then(data => {
             if (data.status === 'success') {
-                // Processa as instâncias e seus status
-                console.log(data.instances); // Aqui você pode manipular os dados conforme necessário
-               // Exemplo de uma função para exibir as instâncias no front-end
+            
+               displayInstances(data.instances)
             } else {
                 console.error('Erro ao buscar as instâncias:', data.message);
             }
@@ -83,7 +82,37 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Erro ao fazer a requisição:', error);
         });
     }
-
+    function displayInstances(instances) {
+        const tbody = document.querySelector('.table tbody'); // Seleciona o corpo da tabela
+        tbody.innerHTML = ''; // Limpa o conteúdo anterior
+    
+        instances.forEach((instance, index) => {
+            // Cria uma nova linha na tabela
+            const row = document.createElement('tr');
+    
+            // Cria a célula para o índice da instância (Número)
+            const cellIndex = document.createElement('th');
+            cellIndex.setAttribute('scope', 'row');
+            cellIndex.textContent = index + 1; // Incrementa para exibir o número da linha
+    
+            // Cria a célula para o nome da instância
+            const cellName = document.createElement('td');
+            cellName.textContent = instance.name;
+    
+            // Cria a célula para o status da instância
+            const cellStatus = document.createElement('td');
+            cellStatus.textContent = instance.status.status || 'Desconhecido'; // Exibe o status ou "Desconhecido" caso não tenha status
+    
+            // Adiciona as células à linha
+            row.appendChild(cellIndex);
+            row.appendChild(cellName);
+            row.appendChild(cellStatus);
+    
+            // Adiciona a linha ao corpo da tabela
+            tbody.appendChild(row);
+        });
+    }
+    
     // Chama a função ao carregar a página
     fetchInstancesStatus();
 });
