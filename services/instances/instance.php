@@ -3,7 +3,7 @@
 $data = json_decode(file_get_contents("php://input"), true);
 
 // Verifica se os dados necessários foram recebidos
-if (isset($data['inputData'])) {
+if (isset($data['instanceName'])) {
 
 
     // Definindo os dados a serem enviados para a API
