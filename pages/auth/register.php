@@ -60,23 +60,27 @@
     
         
     <main class="form-signin w-100 m-auto">
-      <form>
+      <form method="post" action="../../services/auth/register.php">
         <img class="mb-4" src="../../source/img/bootstrap-logo.svg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Faça seu cadastro</h1>
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="Nome">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Nome" name="name">
           <label for="floatingInput">Nome</label>
         </div>
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="text" class="form-control" id="floatingInput" placeholder="WhatsApp" name="whatsapp">
+          <label for="floatingInput">WhatsApp</label>
+        </div>
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
           <label for="floatingInput">Email</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
           <label for="floatingPassword">Senha</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="repeatPassword">
           <label for="floatingPassword">Repita a senha</label>
         </div>
         
