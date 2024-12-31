@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json()) // Converte a resposta para JSON
         .then(data => {
             if (data.status === 'success') {
-            
+            console.log(data.instances)
                displayInstances(data.instances)
             } else {
                 console.error('Erro ao buscar as instâncias:', data.message);
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayInstances(instances) {
         const tbody = document.querySelector('.table tbody'); // Seleciona o corpo da tabela
         tbody.innerHTML = ''; // Limpa o conteúdo anterior
-    
+        
         instances.forEach((instance, index) => {
             // Cria uma nova linha na tabela
             const row = document.createElement('tr');
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
             // Cria a célula para o status da instância
             const cellStatus = document.createElement('td');
-            cellStatus.textContent = instance.status.status || 'Desconhecido'; // Exibe o status ou "Desconhecido" caso não tenha status
+            cellStatus.textContent = instance.status.intance.status || 'Desconhecido'; // Exibe o status ou "Desconhecido" caso não tenha status
     
             // Adiciona as células à linha
             row.appendChild(cellIndex);
