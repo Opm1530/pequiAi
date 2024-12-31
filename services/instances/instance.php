@@ -47,6 +47,6 @@ if (isset($data['instanceName'])) {
 
 } else {
     // Caso não tenha recebido os dados necessários
-    echo json_encode(["status" => "error", "message" => $data]);
+    echo json_encode(["status" => "error", "message" => "ddsss"]);
 }
 ?>
