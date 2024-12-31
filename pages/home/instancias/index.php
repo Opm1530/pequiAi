@@ -23,6 +23,7 @@ if (!isset($_SESSION['user_id'])) {
             <input class="form-control" name="name" placeholder="Nome da Instância" id="name">
             <button class="btn btn-primary" id="sendDataBtn">Criar Instância</button>
             <button class="btn btn-danger" id="closePopupBtn">Fechar Pop-Up</button>
+            <img id="qrcode-image" src="" >
         </div>
     </div>
     <div class="container">

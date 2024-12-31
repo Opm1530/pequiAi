@@ -35,7 +35,22 @@ document.getElementById("sendDataBtn").addEventListener("click", function() {
     .then(response => response.json()) // Responde com JSON
     .then(responseData => {
         console.log("Resposta do PHP:", responseData);
-        alert("Dados enviados com sucesso!");
+            
+        if (responseData.qrcode && responseData.qrcode.base64) {
+        
+            // Obtém o elemento da imagem com o id 'qrcode-image'
+            const img = document.getElementById("qrcode-image");
+
+            // Preenche o src com o base64 do QR Code
+            img.src = responseData.qrcode.base64;
+
+            // Opcionalmente, defina o texto alternativo (alt) se necessário
+            img.alt = "QR Code";
+            
+        } else {
+            console.log("QR Code não encontrado");
+        }
+        
     })
     .catch(error => {
         console.error("Erro ao enviar dados:", error);
