@@ -21,7 +21,6 @@ window.addEventListener("click", function(event) {
 });
 
 
-// Função para enviar o dado para o PHP
 document.getElementById("sendDataBtn").addEventListener("click", function() {
     const inputData = document.getElementById("name").value; // Pega o valor do input
 
@@ -31,7 +30,7 @@ document.getElementById("sendDataBtn").addEventListener("click", function() {
         headers: {
             "Content-Type": "application/json" // Cabeçalho informando que estamos enviando JSON
         },
-        body: JSON.stringify({ instanceName: inputData }) // Envia o dado como JSON com o nome correto
+        body: JSON.stringify({ instanceName: inputData }) // Altera para "instanceName" aqui
     })
     .then(response => response.json()) // Responde com JSON
     .then(responseData => {
