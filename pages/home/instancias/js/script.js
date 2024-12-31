@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayInstances(instances) {
         const tbody = document.querySelector('.table tbody'); // Seleciona o corpo da tabela
         tbody.innerHTML = ''; // Limpa o conteúdo anterior
-        
+    
         instances.forEach((instance, index) => {
             // Cria uma nova linha na tabela
             const row = document.createElement('tr');
@@ -99,9 +99,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const cellName = document.createElement('td');
             cellName.textContent = instance.name;
     
+            // Acessa o status dentro da estrutura correta
+            const status = instance.status && instance.status.instance && instance.status.instance.state 
+                ? instance.status.instance.state 
+                : 'Desconhecido';
+            
             // Cria a célula para o status da instância
             const cellStatus = document.createElement('td');
-            cellStatus.textContent = instance.status.intance.status || 'Desconhecido'; // Exibe o status ou "Desconhecido" caso não tenha status
+            cellStatus.textContent = status;
     
             // Adiciona as células à linha
             row.appendChild(cellIndex);
