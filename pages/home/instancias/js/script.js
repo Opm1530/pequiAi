@@ -31,6 +31,7 @@ document.getElementById("sendDataBtn").addEventListener("click", function() {
             "Content-Type": "application/json" // Cabeçalho informando que estamos enviando JSON
         },
         body: JSON.stringify({ instanceName: inputData }) // Altera para "instanceName" aqui
+        
     })
     .then(response => response.json()) // Responde com JSON
     .then(responseData => {
