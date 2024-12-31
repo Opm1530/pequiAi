@@ -65,7 +65,8 @@
           <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Início</a>
             <a class="nav-link fw-bold py-1 px-0" href="#">Planos</a>
-            <a class="nav-link fw-bold py-1 px-0" href="./pages/auth/login.php">Login</a>
+            <a class="nav-link fw-bold py-1 px-0" href="./pages/auth/register.php">Criar Conta</a>
+            <a class="nav-link fw-bold py-1 px-0" href="./pages/auth/login.php">Entrar na Conta</a>
           </nav>
         </div>
       </header>
@@ -76,7 +77,7 @@
 
             Invista na tecnologia que conecta você ao futuro das vendas!</p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Fazer Login</a>
+          <a href="./pages/auth/login.php" class="btn btn-lg btn-light fw-bold border-white bg-white">Fazer Login</a>
         </p>
       </main>
     
