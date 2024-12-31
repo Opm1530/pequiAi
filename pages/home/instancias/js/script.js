@@ -61,3 +61,29 @@ document.getElementById("sendDataBtn").addEventListener("click", function() {
         console.error("Erro ao enviar dados:", error);
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Função para fazer a requisição ao PHP e tratar a resposta
+    function fetchInstancesStatus() {
+        // Realiza a requisição GET para o PHP
+        fetch('../../../../services/instances/instanceList.php', {
+            method: 'GET', // ou 'POST' se for necessário
+        })
+        .then(response => response.json()) // Converte a resposta para JSON
+        .then(data => {
+            if (data.status === 'success') {
+                // Processa as instâncias e seus status
+                console.log(data.instances); // Aqui você pode manipular os dados conforme necessário
+               // Exemplo de uma função para exibir as instâncias no front-end
+            } else {
+                console.error('Erro ao buscar as instâncias:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao fazer a requisição:', error);
+        });
+    }
+
+    // Chama a função ao carregar a página
+    fetchInstancesStatus();
+});
