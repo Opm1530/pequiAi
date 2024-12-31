@@ -23,3 +23,9 @@
 #qrcode-image{
     width: 100%;
 }
+#contentPopup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
