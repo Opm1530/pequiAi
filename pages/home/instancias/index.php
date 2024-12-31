@@ -20,10 +20,12 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <div class="popup-background" id="popup">
         <div class="popup">
-            <input class="form-control" name="name" placeholder="Nome da Instância" id="name">
-            <button class="btn btn-primary" id="sendDataBtn">Criar Instância</button>
-            <button class="btn btn-danger" id="closePopupBtn">Fechar Pop-Up</button>
+            <div id="contentPopup">
+                <input class="form-control" name="name" placeholder="Nome da Instância" id="name">
+                <button class="btn btn-primary" id="sendDataBtn">Criar Instância</button>
+            </div>
             <img id="qrcode-image" src="" >
+            <button class="btn btn-danger" id="closePopupBtn">Fechar Pop-Up</button>
         </div>
     </div>
     <div class="container">

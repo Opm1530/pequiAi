@@ -38,9 +38,14 @@ document.getElementById("sendDataBtn").addEventListener("click", function() {
         console.log("Resposta do PHP:", responseData);
             
         if (responseData.qrcode && responseData.qrcode.base64) {
-        
+            
             // Obtém o elemento da imagem com o id 'qrcode-image'
             const img = document.getElementById("qrcode-image");
+
+            const elemento = document.getElementById("contentPopup");
+
+            // Define o display como none
+            elemento.style.display = "none";
 
             // Preenche o src com o base64 do QR Code
             img.src = responseData.qrcode.base64;
