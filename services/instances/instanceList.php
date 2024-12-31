@@ -11,7 +11,7 @@ if (!$userId) {
 }
 
 // Inicializa o PDO (certifique-se de ter configurado corretamente)
-require 'db_connection.php'; // Inclua aqui o arquivo que inicializa o $pdo
+require '../configs/dbconfig.php';
 
 // Função para fazer a requisição cURL
 function getInstanceStatus($instanceId) {
