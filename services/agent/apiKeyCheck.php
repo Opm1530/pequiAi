@@ -23,7 +23,45 @@ try {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && !empty($user['openai_key'])) {
-            echo json_encode(['status' => 'sucesso', 'mensagem' => 'Chave da OpenAI encontrada.']);
+            
+            // Chave da OpenAI encontrada, vamos testar a conexão com a API
+            $apiKey = $user['openai_key'];
+
+            // Fazendo a requisição para a OpenAI
+            $url = 'https://api.openai.com/v1/models';
+            $headers = [
+                'Authorization: Bearer ' . $apiKey
+            ];
+
+            // Usando cURL para fazer a requisição
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                $error = curl_error($ch);
+                curl_close($ch);
+                echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao conectar com a OpenAI: ' . $error]);
+                exit;
+            }
+
+            curl_close($ch);
+
+            // Decodificando a resposta da OpenAI
+            $data = json_decode($response, true);
+
+            if ($data && isset($data['data'])) {
+                echo json_encode([
+                    'status' => 'sucesso',
+                    'mensagem' => 'Conexão bem-sucedida com a OpenAI!',
+                    'api_key' => $apiKey,
+                    'response' => $data
+                ]);
+            } else {
+                echo json_encode(['status' => 'erro', 'mensagem' => 'Falha na conexão com a OpenAI, sem dados retornados.']);
+            }
         } else {
             echo json_encode(['status' => 'erro', 'mensagem' => 'Chave da OpenAI não encontrada para o usuário logado.']);
         }
