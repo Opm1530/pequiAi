@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id'])) {
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="./instancias/index.php" class="nav-link">Instâcias</a></li>
-            <li class="nav-item"><a href="./privateMessage/index.php" class="nav-link">Instâcias</a></li>
+            <li class="nav-item"><a href="./agenteAi/index.php" class="nav-link">Agente Ai</a></li>
             <li class="nav-item"><a href="../../services/auth/logout.php"class="nav-link">Sair</a></li>
         </ul>
         </header>
