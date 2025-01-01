@@ -3,9 +3,6 @@ session_start();
 require '../configs/dbconfig.php';
 
 try {
-    // Conexão com o banco de dados
-    $db = new PDO($dsn, $username, $password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Verifica se o usuário está logado
     session_start();
@@ -18,7 +15,7 @@ try {
 
     // Consulta SQL para verificar se a chave da OpenAI existe no banco
     $query = "SELECT openai_key FROM users WHERE id = :user_id";
-    $stmt = $db->prepare($query);
+    $stmt = $pdo->prepare($query);
     $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
 
     try {
