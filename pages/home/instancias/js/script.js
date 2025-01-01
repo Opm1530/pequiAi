@@ -64,62 +64,59 @@ document.getElementById("sendDataBtn").addEventListener("click", function() {
     });
 });
 
+function fetchInstancesStatus() {
+    // Realiza a requisição GET para o PHP
+    fetch('../../../../services/instances/instanceList.php', {
+        method: 'GET', // ou 'POST' se for necessário
+    })
+    .then(response => response.json()) // Converte a resposta para JSON
+    .then(data => {
+        if (data.status === 'success') {
+        console.log(data.instances)
+           displayInstances(data.instances)
+        } else {
+            console.error('Erro ao buscar as instâncias:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao fazer a requisição:', error);
+    });
+}
+function displayInstances(instances) {
+    const tbody = document.querySelector('.table tbody'); // Seleciona o corpo da tabela
+    tbody.innerHTML = ''; // Limpa o conteúdo anterior
+
+    instances.forEach((instance, index) => {
+        // Cria uma nova linha na tabela
+        const row = document.createElement('tr');
+
+        // Cria a célula para o índice da instância (Número)
+        const cellIndex = document.createElement('th');
+        cellIndex.setAttribute('scope', 'row');
+        cellIndex.textContent = index + 1; // Incrementa para exibir o número da linha
+
+        // Cria a célula para o nome da instância
+        const cellName = document.createElement('td');
+        cellName.textContent = instance.name;
+
+        // Acessa o status dentro da estrutura correta
+        const status = instance.status && instance.status.instance && instance.status.instance.state 
+            ? instance.status.instance.state 
+            : 'Desconhecido';
+        
+        // Cria a célula para o status da instância
+        const cellStatus = document.createElement('td');
+        cellStatus.textContent = status;
+
+        // Adiciona as células à linha
+        row.appendChild(cellIndex);
+        row.appendChild(cellName);
+        row.appendChild(cellStatus);
+
+        // Adiciona a linha ao corpo da tabela
+        tbody.appendChild(row);
+    });
+}
 document.addEventListener('DOMContentLoaded', function() {
-    // Função para fazer a requisição ao PHP e tratar a resposta
-    function fetchInstancesStatus() {
-        // Realiza a requisição GET para o PHP
-        fetch('../../../../services/instances/instanceList.php', {
-            method: 'GET', // ou 'POST' se for necessário
-        })
-        .then(response => response.json()) // Converte a resposta para JSON
-        .then(data => {
-            if (data.status === 'success') {
-            console.log(data.instances)
-               displayInstances(data.instances)
-            } else {
-                console.error('Erro ao buscar as instâncias:', data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao fazer a requisição:', error);
-        });
-    }
-    function displayInstances(instances) {
-        const tbody = document.querySelector('.table tbody'); // Seleciona o corpo da tabela
-        tbody.innerHTML = ''; // Limpa o conteúdo anterior
-    
-        instances.forEach((instance, index) => {
-            // Cria uma nova linha na tabela
-            const row = document.createElement('tr');
-    
-            // Cria a célula para o índice da instância (Número)
-            const cellIndex = document.createElement('th');
-            cellIndex.setAttribute('scope', 'row');
-            cellIndex.textContent = index + 1; // Incrementa para exibir o número da linha
-    
-            // Cria a célula para o nome da instância
-            const cellName = document.createElement('td');
-            cellName.textContent = instance.name;
-    
-            // Acessa o status dentro da estrutura correta
-            const status = instance.status && instance.status.instance && instance.status.instance.state 
-                ? instance.status.instance.state 
-                : 'Desconhecido';
-            
-            // Cria a célula para o status da instância
-            const cellStatus = document.createElement('td');
-            cellStatus.textContent = status;
-    
-            // Adiciona as células à linha
-            row.appendChild(cellIndex);
-            row.appendChild(cellName);
-            row.appendChild(cellStatus);
-    
-            // Adiciona a linha ao corpo da tabela
-            tbody.appendChild(row);
-        });
-    }
-    
-    // Chama a função ao carregar a página
     fetchInstancesStatus();
 });
