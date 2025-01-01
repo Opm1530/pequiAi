@@ -22,7 +22,7 @@ try {
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && !empty($user['openai_api_key'])) {
+        if ($user && !empty($user['openai_key'])) {
             echo json_encode(['status' => 'sucesso', 'mensagem' => 'Chave da OpenAI encontrada.']);
         } else {
             echo json_encode(['status' => 'erro', 'mensagem' => 'Chave da OpenAI não encontrada para o usuário logado.']);
