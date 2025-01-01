@@ -20,14 +20,29 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <div class="popup-background" id="popup">
         <div class="popup">
-            <div id="contentPopup">
-                <input class="form-control" name="name" placeholder="Nome da Instância" id="name">
-                <button class="btn btn-primary" id="sendDataBtn">Criar Instância</button>
+            <div class="firstStep">
+                <input type="text" placeholder="API OPEN AI">
+                <button>Salvar</button>
+                <button>Tentar Novamente</button>
+                <button class="nextStep">Avançar</button>
             </div>
-            <img id="qrcode-image" src="" >
+            <div class="secondStep" style="display: none;">
+                <input type="text" placeholder="Nome do Agente">
+                <select>
+                    <option>MODELO CHATPT</option>
+                </select>
+                <button class="nextStep">Avançar</button>
+                <button class="prevStep">Voltar</button>
+            </div>
+            <div class="thirdStep" style="display: none;">
+                <textarea placeholder="Instruções do Agente"></textarea>
+                <button>Criar</button>
+                <button class="prevStep">Voltar</button>
+            </div>
             <button class="btn btn-danger" id="closePopupBtn">Fechar Pop-Up</button>
         </div>
     </div>
+    
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
