@@ -11,6 +11,7 @@ openPopupBtn.addEventListener("click", function() {
 // Função para fechar o popup
 closePopupBtn.addEventListener("click", function() {
     popup.style.display = "none"; // Torna o popup invisível
+    fetchInstancesStatus();
 });
 
 // Opcional: Fechar o popup ao clicar fora da área do conteúdo
@@ -52,6 +53,7 @@ document.getElementById("sendDataBtn").addEventListener("click", function() {
 
             // Opcionalmente, defina o texto alternativo (alt) se necessário
             img.alt = "QR Code";
+
         } else {
             console.log("QR Code não encontrado");
         }
