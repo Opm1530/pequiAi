@@ -37,13 +37,13 @@ if (!isset($_SESSION['user_id'])) {
     <div class="container text-center">
         <div class="row">
             <div class="col">
-                <h1>Envio no privado</h1>
+                <h1>Agente AI</h1>
             </div>
             <div class="col">
             
             </div>
             <div class="col">
-                <button type="button" class="btn btn-primary" id="openPopupBtn">Novo Envio</button>
+                <button type="button" class="btn btn-primary" id="openPopupBtn">Novo Agente</button>
             </div>
         </div>
     </div>
