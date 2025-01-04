@@ -22,7 +22,8 @@ if (!isset($_SESSION['user_id'])) {
         <div class="popup">
             <div class="firstStep">
                 <div id="haveApi">
-                    <h1>API JÁ CADASTRADA E CONECTADA</h1>
+                    <h1>API CADASTRADA E CONECTADA</h1>
+                    <button class="nextStep">Avançar</button>
                 </div>
                 <div id="dontHaveApi">
                     <input type="text" placeholder="API OPEN AI">
@@ -32,7 +33,6 @@ if (!isset($_SESSION['user_id'])) {
                     <img src="../../../source/img/loading-gif.gif" width="130px">
                     <span>Verificando API...</span>
                 </div>
-                <button class="nextStep">Avançar</button>
             </div>
             <div class="secondStep" style="display: none;">
                 <input type="text" placeholder="Nome do Agente">
