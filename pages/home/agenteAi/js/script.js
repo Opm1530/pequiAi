@@ -62,29 +62,34 @@ async function checkAPI() {
     const divInputApi = document.getElementById("dontHaveApi");
     const divHaveApi = document.getElementById("haveApi");
     const divLoading = document.getElementById("loading");
-    divLoading.style.display="flex";
-    
+    divLoading.style.display = "flex";
+
     try {
         const response = await fetch('../../../../services/agent/apiKeyCheck.php');
-        console.log(response.status)
-        // Verifica se a resposta foi bem-sucedida
-        if (response.data.status != "success") {
+        console.log(response.status);
+
+        // Converte a resposta para JSON
+        const data = await response.json();
+
+        // Verifica se o status retornado é "success"
+        if (data.status !== "success") {
             divInputApi.style.display = "flex";
             divHaveApi.style.display = "none";
-            divLoading.style.display="none";
+            divLoading.style.display = "none";
             throw new Error(`Erro: ${response.status} - ${response.statusText}`);
         }
 
         divInputApi.style.display = "none";
         divHaveApi.style.display = "flex";
-        divLoading.style.display="none";
+        divLoading.style.display = "none";
     } catch (error) {
         divInputApi.style.display = "flex";
         divHaveApi.style.display = "none";
-        divLoading.style.display="none";
+        divLoading.style.display = "none";
         console.error('Erro ao buscar os dados:', error);
     }
 };
+
 
 
 
