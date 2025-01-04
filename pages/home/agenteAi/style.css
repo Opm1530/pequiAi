@@ -30,4 +30,5 @@
 
 #haveApi, #dontHaveApi, #loading{
     display: none;
+    flex-direction: column;
 }
