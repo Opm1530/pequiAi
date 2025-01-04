@@ -28,6 +28,10 @@ if (!isset($_SESSION['user_id'])) {
                     <input type="text" placeholder="API OPEN AI">
                     <button>Salvar</button>
                 </div>
+                <div id="loading">
+                    <img src="../../../source/img/loading-gif.gif" width="30px">
+                    <span>Verificando API...</span>
+                </div>
                 <button class="nextStep">Avançar</button>
             </div>
             <div class="secondStep" style="display: none;">

@@ -61,23 +61,27 @@ prevButtons.forEach(button => {
 async function checkAPI() {
     const divInputApi = document.getElementById("dontHaveApi");
     const divHaveApi = document.getElementById("haveApi");
+    const divLoading = document.getElementById("loading");
+
     
     try {
         const response = await fetch('../../../../services/agent/apiKeyCheck.php');
-
+        divLoading.style.display="flex";
         // Verifica se a resposta foi bem-sucedida
         if (!response.ok) {
             divInputApi.style.display = "flex";
             divHaveApi.style.display = "none";
+            divLoading.style.display="none";
             throw new Error(`Erro: ${response.status} - ${response.statusText}`);
         }
 
         divInputApi.style.display = "none";
         divHaveApi.style.display = "flex";
-
+        divLoading.style.display="none";
     } catch (error) {
         divInputApi.style.display = "flex";
         divHaveApi.style.display = "none";
+        divLoading.style.display="none";
         console.error('Erro ao buscar os dados:', error);
     }
 };

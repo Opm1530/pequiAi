@@ -28,6 +28,6 @@
     gap: 10px;
 }
 
-#haveApi, #dontHaveApi{
+#haveApi, #dontHaveApi, #loading{
     display: none;
 }
