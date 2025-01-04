@@ -35,16 +35,19 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </div>
             <div class="secondStep" style="display: none;">
-                <input type="text" placeholder="Nome do Agente">
-                <select>
-                    <option>MODELO CHATPT</option>
+                <input type="text" placeholder="Nome do Agente" id="nameAgent">
+                <select id="typeAgent">
+                    <option selected>MODELO CHATPT</option>
+                    <option value="gpt-4o">GPT-4o</option>
+                    <option value="gpt-4-turbo">GPT-4-Turbo</option>
+                    <option value="gpt-4o-mini">GPT-4o-Mini</option>
                 </select>
                 <button class="nextStep">Avançar</button>
                 <button class="prevStep">Voltar</button>
             </div>
             <div class="thirdStep" style="display: none;">
-                <textarea placeholder="Instruções do Agente"></textarea>
-                <button>Criar</button>
+                <textarea placeholder="Instruções do Agente" id="instructionsAgent"></textarea>
+                <button id="sendDataButton">Criar</button>
                 <button class="prevStep">Voltar</button>
             </div>
             <button class="btn btn-danger" id="closePopupBtn">Fechar Pop-Up</button>

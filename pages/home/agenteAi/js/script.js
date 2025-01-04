@@ -1,10 +1,13 @@
 // Referências aos elementos
 const openPopupBtn = document.getElementById("openPopupBtn");
 const closePopupBtn = document.getElementById("closePopupBtn");
+const sendDataButton = document.getElementById("sendDataButton");
+
 const popup = document.getElementById("popup");
 const checkAPIButton = document.getElementById("checkAPIButton");
 const nextButtons = document.querySelectorAll(".nextStep");
 const prevButtons = document.querySelectorAll(".prevStep");
+
 const steps = document.querySelectorAll(".popup > div");
 let currentStep = 0;
 
@@ -66,11 +69,11 @@ async function checkAPI() {
 
     try {
         const response = await fetch('../../../../services/agent/apiKeyCheck.php');
-        console.log(response.status);
+        
 
         // Converte a resposta para JSON
         const data = await response.json();
-
+        console.log(data);
         // Verifica se o status retornado é "success"
         if (data.status !== "success") {
             divInputApi.style.display = "flex";
@@ -90,6 +93,50 @@ async function checkAPI() {
     }
 };
 
+
+sendDataButton.addEventListener("click", async function() {
+    const name = document.getElementById('nameAgent');  // Aqui você define o nome
+    const model =  document.getElementById('typeAgent');;   // Aqui você define o modelo
+    const instructions = document.getElementById('instructionsAgent');;
+    
+    
+    
+    try {
+        // Envia os dados para o PHP via POST
+        const response = await fetch('../../../../services/agent/agentCreate.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                model: model,
+                instructions: instructions
+            })
+        });
+
+        // Verifica se a resposta foi bem-sucedida
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} - ${response.statusText}`);
+        }
+
+        // Converte a resposta para JSON
+        const data = await response.json();
+        console.log(data); // Exibe os dados no console
+
+        // Exemplo: Verifica se o status é "success" e atualiza a interface
+        if (data.status === "success") {
+          
+        } else {
+          
+        }
+
+       
+    } catch (error) {
+        console.error('Erro ao enviar os dados:', error);
+        
+    }
+});
 
 
 
