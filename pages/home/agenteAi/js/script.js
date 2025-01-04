@@ -57,27 +57,25 @@ prevButtons.forEach(button => {
 const checkAPIButton = document.querySelectorAll(".checkApi");
 
 
-checkAPIButton.addEventListener("click", function() {
-    async function checkAPIAi() {
-        try {
-            const response = await fetch('../../../../services/agent/apiKeyCheck.php');
-    
-            // Verifica se a resposta foi bem-sucedida
-            if (!response.ok) {
-                throw new Error(`Erro: ${response.status} - ${response.statusText}`);
-            }
-    
-            // Converte a resposta para JSON
-            const data = await response.json();
-    
-            // Exibe os dados no console
-            console.log(data);
-    
-            // Exemplo: Mostra os dados na página
-            document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
-        } catch (error) {
-            console.error('Erro ao buscar os dados:', error);
+checkAPIButton.addEventListener("click", async function () {
+    try {
+        const response = await fetch('../../../../services/agent/apiKeyCheck.php');
+
+        // Verifica se a resposta foi bem-sucedida
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} - ${response.statusText}`);
         }
+
+        // Converte a resposta para JSON
+        const data = await response.json();
+
+        // Exibe os dados no console
+        console.log(data);
+
+        // Exemplo: Mostra os dados na página
+        document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+    } catch (error) {
+        console.error('Erro ao buscar os dados:', error);
     }
 });
 
