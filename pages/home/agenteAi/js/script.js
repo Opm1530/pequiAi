@@ -12,6 +12,7 @@ let currentStep = 0;
 openPopupBtn.addEventListener("click", function() {
     popup.style.display = "flex"; // Torna o popup visível
     showStep(currentStep); // Exibe a primeira etapa
+    checkAPI()
 });
 
 // Função para fechar o popup
@@ -57,27 +58,29 @@ prevButtons.forEach(button => {
 
 
 
-checkAPIButton.addEventListener("click", async function () {
+async function checkAPI() {
+    const divInputApi = document.getElementById("dontHaveApi");
+    const divHaveApi = document.getElementById("haveApi");
+    
     try {
         const response = await fetch('../../../../services/agent/apiKeyCheck.php');
 
         // Verifica se a resposta foi bem-sucedida
         if (!response.ok) {
+            divInputApi.style.display = "flex";
+            divHaveApi.style.display = "none";
             throw new Error(`Erro: ${response.status} - ${response.statusText}`);
         }
 
-        // Converte a resposta para JSON
-        const data = await response.json();
+        divInputApi.style.display = "none";
+        divHaveApi.style.display = "flex";
 
-        // Exibe os dados no console
-        console.log(data);
-
-        // Exemplo: Mostra os dados na página
-        document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
     } catch (error) {
+        divInputApi.style.display = "flex";
+        divHaveApi.style.display = "none";
         console.error('Erro ao buscar os dados:', error);
     }
-});
+};
 
 
 

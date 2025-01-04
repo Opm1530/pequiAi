@@ -21,9 +21,13 @@ if (!isset($_SESSION['user_id'])) {
     <div class="popup-background" id="popup">
         <div class="popup">
             <div class="firstStep">
-                <input type="text" placeholder="API OPEN AI">
-                <button>Salvar</button>
-                <button>Tentar Novamente</button>
+                <div id="haveApi">
+                    <h1>API JÁ CADASTRADA E CONECTADA</h1>
+                </div>
+                <div id="dontHaveApi">
+                    <input type="text" placeholder="API OPEN AI">
+                    <button>Salvar</button>
+                </div>
                 <button class="nextStep">Avançar</button>
             </div>
             <div class="secondStep" style="display: none;">
@@ -53,7 +57,7 @@ if (!isset($_SESSION['user_id'])) {
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="../index.php" class="nav-link " aria-current="page">Home</a></li>
             <li class="nav-item"><a href="../instancias/index.php" class="nav-link ">Instâncias</a></li>
-            <li class="nav-item"><a href="../privateMessage/index.php" class="nav-link active">Envio no privado</a></li>
+            <li class="nav-item"><a href="../privateMessage/index.php" class="nav-link active">Agente AI</a></li>
             <li class="nav-item"><a href="../../../services/auth/logout.php"class="nav-link">Sair</a></li>
         </ul>
         </header>
