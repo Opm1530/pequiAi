@@ -54,9 +54,8 @@ try {
 
             if ($data && isset($data['data'])) {
                 echo json_encode([
-                    'status' => 'sucesso',
+                    'status' => 'success',
                     'mensagem' => 'Conexão bem-sucedida com a OpenAI!',
-                    'api_key' => $apiKey,
                     'response' => $data
                 ]);
             } else {
