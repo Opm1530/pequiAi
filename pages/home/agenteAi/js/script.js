@@ -76,3 +76,4 @@ async function checkAPIAi() {
         console.error('Erro ao buscar os dados:', error);
     }
 }
+

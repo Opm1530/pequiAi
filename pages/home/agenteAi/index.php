@@ -71,6 +71,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
+    <button onclick="checkAPIAi()">CHECK API</button>
     <div class="container">
         
         </table>
