@@ -62,11 +62,11 @@ async function checkAPI() {
     const divInputApi = document.getElementById("dontHaveApi");
     const divHaveApi = document.getElementById("haveApi");
     const divLoading = document.getElementById("loading");
-
+    divLoading.style.display="flex";
     
     try {
         const response = await fetch('../../../../services/agent/apiKeyCheck.php');
-        divLoading.style.display="flex";
+        
         // Verifica se a resposta foi bem-sucedida
         if (!response.ok) {
             divInputApi.style.display = "flex";
