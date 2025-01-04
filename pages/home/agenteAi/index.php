@@ -71,7 +71,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
-    <button class="checkApi">CHECK API</button>
+    <button id="checkAPIButton">CHECK API</button>
     <div class="container">
         
         </table>

@@ -2,7 +2,7 @@
 const openPopupBtn = document.getElementById("openPopupBtn");
 const closePopupBtn = document.getElementById("closePopupBtn");
 const popup = document.getElementById("popup");
-const checkAPIButton = document.querySelectorAll(".checkApi");
+const checkAPIButton = document.getElementById("checkAPIButton");
 const nextButtons = document.querySelectorAll(".nextStep");
 const prevButtons = document.querySelectorAll(".prevStep");
 const steps = document.querySelectorAll(".popup > div");
