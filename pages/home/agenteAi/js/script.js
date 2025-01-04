@@ -68,7 +68,7 @@ async function checkAPI() {
         const response = await fetch('../../../../services/agent/apiKeyCheck.php');
         console.log(response.status)
         // Verifica se a resposta foi bem-sucedida
-        if (response.status != "success") {
+        if (response.status != 200) {
             divInputApi.style.display = "flex";
             divHaveApi.style.display = "none";
             divLoading.style.display="none";
