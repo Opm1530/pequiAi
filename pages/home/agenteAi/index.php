@@ -71,12 +71,12 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
-    
+    <button onclick="checkAPIAi()" class="checkApi">CHECK API</button>
     <div class="container">
         
         </table>
     </div>
     <script src='./js/script.js'></script>
-    <button onclick="checkAPIAi()">CHECK API</button>
+    
 </body>
 </html>
