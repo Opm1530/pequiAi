@@ -29,7 +29,7 @@ if (!isset($_SESSION['user_id'])) {
                     <button>Salvar</button>
                 </div>
                 <div id="loading">
-                    <img src="../../../source/img/loading-gif.gif" width="30px">
+                    <img src="../../../source/img/loading-gif.gif" width="130px">
                     <span>Verificando API...</span>
                 </div>
                 <button class="nextStep">Avançar</button>
@@ -52,6 +52,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     
     <div class="container">
+        <img src="../../../source/img/loading-gif.gif" width="130px">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
