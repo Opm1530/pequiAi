@@ -9,16 +9,15 @@ try {
         exit;
     }
 
-    $userId = $_SESSION['user_id']; // ID do usuário logado
 
-    // Recebe os dados via POST
     $data = json_decode(file_get_contents('php://input'), true);
 
-    if (isset($data['name']) && isset($data['type']) && isset($data['instructions'])) {
+    if (isset($data['name']) && isset($data['model']) && isset($data['instructions'])) {
         $name = $data['name'];
-        $model = $data['type'];
+        $model = $data['model'];
         $instructions = $data['instructions'];
 
+        $userId = $_SESSION['user_id']; // ID do usuário logado
 
         // Consulta SQL para verificar se a chave da OpenAI existe no banco
         $query = "SELECT openai_key FROM users WHERE id = :user_id";
@@ -68,6 +67,7 @@ try {
                 // Decodificando a resposta da OpenAI
                 $data = json_decode($response, true);
 
+                // Verifica se os dados foram retornados
                 if ($data && isset($data['data'])) {
                     echo json_encode([
                         'status' => 'success',
@@ -83,7 +83,8 @@ try {
         } catch (PDOException $e) {
             echo json_encode(['status' => 'error', 'mensagem' => 'Erro ao verificar a chave da OpenAI: ' . $e->getMessage()]);
         }
-    } else {
+    }
+    else{
         echo json_encode(['status' => 'error', 'mensagem' => 'Dados incompletos recebidos.']);
     }
 } catch (PDOException $e) {
