@@ -14,10 +14,11 @@ try {
     // Recebe os dados via POST
     $data = json_decode(file_get_contents('php://input'), true);
 
-    if (isset($data['name']) && isset($data['model']) && isset($data['instructions'])) {
+    if (isset($data['name']) && isset($data['type']) && isset($data['instructions'])) {
         $name = $data['name'];
-        $model = $data['model'];
+        $model = $data['type'];
         $instructions = $data['instructions'];
+
 
         // Consulta SQL para verificar se a chave da OpenAI existe no banco
         $query = "SELECT openai_key FROM users WHERE id = :user_id";
