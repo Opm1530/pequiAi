@@ -95,11 +95,9 @@ async function checkAPI() {
 
 
 sendDataButton.addEventListener("click", async function() {
-    const name = document.getElementById('nameAgent');  // Aqui você define o nome
-    const model =  document.getElementById('typeAgent');;   // Aqui você define o modelo
-    const instructions = document.getElementById('instructionsAgent');;
-    
-    
+    const name = document.getElementById('nameAgent').value;  // Pega o valor do campo 'nameAgent'
+    const model = document.getElementById('typeAgent').value;  // Pega o valor do campo 'typeAgent'
+    const instructions = document.getElementById('instructionsAgent').value;  // Pega o valor do campo 'instructionsAgent'
     
     try {
         // Envia os dados para o PHP via POST
@@ -126,15 +124,12 @@ sendDataButton.addEventListener("click", async function() {
 
         // Exemplo: Verifica se o status é "success" e atualiza a interface
         if (data.status === "success") {
-          
+            console.log('Sucesso:', data.mensagem);
         } else {
-          
+            console.error('Erro:', data.mensagem);
         }
-
-       
     } catch (error) {
         console.error('Erro ao enviar os dados:', error);
-        
     }
 });
 
